@@ -4,7 +4,7 @@ import '../style.css'
 function App() {
     const japan = [35.6895, 139.6917];
     return (
-        <MapContainer center={japan} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={japan} zoom={13} scrollWheelZoom={true} id='map'>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
