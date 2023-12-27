@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './components/header'
+import Header from './components/header/header'
+import Button from './components/button'
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <>
       <Header />
-      <p>Hello world</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <p>Count: {count}</p>
+      <div className='App'>
+        <Button text='あああ' />
+        <Button text='いいい' />
+      </div>
     </>
   )
 }
