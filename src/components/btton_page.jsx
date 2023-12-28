@@ -25,11 +25,11 @@ const ButtonPage = () => {
   ];
 
   return (
-    <>
+    <div className="BtnPage">
       {accidentInfo.map((info, index) => (
         <AccidentTypeSelector key={index} title={info.title} typeArray={info.typeArray} />
       ))}
-    </>
+    </div>
   );
 };
 
