@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/header'
-import Button from './components/button'
+import ButtonPage from './components/btton_page'
 
 function App() {
   return (
     <>
       <Header />
-      <div className='App'>
-        <Button text='あああ' />
-        <Button text='いいい' />
-      </div>
+      <ButtonPage />
     </>
   )
 }

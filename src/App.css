@@ -3,11 +3,11 @@
 \********************************************************/
 
 .header {
-	background-color: rgb(25, 118, 210);
-	color: white;
-	padding: 10px 5% 10px;
-	user-select: none;
-	height: fit-content;
+  background-color: rgb(25, 118, 210);
+  color: white;
+  padding: 10px 5% 10px;
+  user-select: none;
+  height: fit-content;
 }
 
 /* ******************************************************\
@@ -15,11 +15,21 @@
 \********************************************************/
 
 .selectBtn {
-	width: 120px;
-	height: 60px;
-	display: block;
-	font-weight: bold;
-	border-radius: 9999px;
-	cursor: pointer;
-	border: none;
-  }
+  color: white;
+  width: 131px;
+  height: 44px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 10px 10px 10px;
+  border: none;
+}
+
+.BtnTitle {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  margin: 10px 10px 0px 10px;
+}
