@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
 
@@ -21,7 +21,7 @@ function Map() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-       <CircleMarker center={[51.51, -0.12]} pathOptions={redOptions} radius={20}>
+       <CircleMarker center={[51.51, -0.12]} radius={20}>
       <Popup>Popup in CircleMarker</Popup>
     </CircleMarker>
     </MapContainer>
