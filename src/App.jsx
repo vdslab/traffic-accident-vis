@@ -2,12 +2,17 @@ import { useState } from 'react'
 import './App.css'
 import Header from './components/header'
 import ButtonPage from './components/btton_page'
-
+import Map from './components/Map'
 function App() {
   return (
     <>
       <Header />
-      <ButtonPage />
+      <main>
+        <aside>
+          <ButtonPage />
+        </aside>
+        <Map />
+      </main>
     </>
   )
 }

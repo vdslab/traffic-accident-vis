@@ -1,0 +1,13 @@
+.leaflet-container {
+    width: 1000px;
+    height: 1000px;
+    margin: 10px;
+}
+
+main{
+    display: flex;
+}
+
+aside{
+    background-color: beige;
+}
