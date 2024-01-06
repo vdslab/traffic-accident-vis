@@ -28,9 +28,9 @@ function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {
-        Data.map((item) => {
+        Data.map((item, index) => {
           return (
-            <Circle center={[Dms2Deg(item.q), Dms2Deg(item.r)]} radius={10}>
+            <Circle center={[Dms2Deg(item.q), Dms2Deg(item.r)]} radius={10} key={index}>
               <Popup>{Dms2Deg(item.q)}, {Dms2Deg(item.r)}</Popup>
             </Circle>
           );
