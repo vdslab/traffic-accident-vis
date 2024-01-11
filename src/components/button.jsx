@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AccidentTypeContext } from '../App.jsx';
 
-const Button = (props) => {
-  const defaultColor = ['rgb(25, 118, 210)', 'rgb(149, 150, 151)'];
-  const [color, setColor] = useState(defaultColor[0]);
-
-  const handleClick = () => {
-    const newColor = color === defaultColor[1] ? defaultColor[0] : defaultColor[1];
-    setColor(newColor);
-  };
-
+const Button = ({ data, i, j }) => {
+  const [accidentInfo, setAccidentInfo] = useContext(AccidentTypeContext);
   return (
-    <button className="selectBtn" style={{ backgroundColor: color }} onClick={handleClick}>
-	    {props.text}
-    </button>
+    <label>
+      <input type="checkbox" className="selectBtn" checked={data.checked} onChange={() => {
+        const newChecked = !data.checked;
+        const newAccidentInfo = [...accidentInfo];
+        newAccidentInfo[i].types[j].checked = newChecked;
+        setAccidentInfo(newAccidentInfo);
+      }} />
+      {data.type}
+    </label>
   );
-};
+}
 
 export default Button;
