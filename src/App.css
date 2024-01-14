@@ -5,9 +5,15 @@
 .header {
   background-color: rgb(25, 118, 210);
   color: white;
-  padding: 10px 5% 10px;
+  padding: 0 5%;
   user-select: none;
-  height: fit-content;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
 }
 
 /* ******************************************************\
@@ -45,6 +51,11 @@
 /* ******************************************************\
 **                    button_page.jsx                   **
 \********************************************************/
+
+.BtnPage {
+    height: 100%;
+    overflow: auto;
+}
 
 .SetBtn {
     display: flex;
