@@ -97,10 +97,17 @@ function App() {
   const [accidentInfoState, setAccidentInfoState] = useState(accidentInfo);
   console.log(accidentInfoState);
   return (
+    <>
     <AccidentTypeContext.Provider value={[accidentInfoState, setAccidentInfoState]}>
-      <Header />
-      <ButtonPage />
+    <Header />
+    <main>
+      <aside>
+        <ButtonPage />
+      </aside>
+      <Map />
+    </main>
     </AccidentTypeContext.Provider>
+  </>
   )
 }
 
