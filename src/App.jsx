@@ -2,7 +2,7 @@ import { useState, createContext } from 'react'
 import './App.css'
 import Header from './components/header'
 import ButtonPage from './components/btton_page'
-import data from "../data.json";
+import Map from './components/Map'
 
 export const AccidentTypeContext = createContext();
 
@@ -97,10 +97,24 @@ function App() {
   const [accidentInfoState, setAccidentInfoState] = useState(accidentInfo);
   console.log(accidentInfoState);
   return (
+<<<<<<< HEAD
     <AccidentTypeContext.Provider value={[accidentInfoState, setAccidentInfoState]}>
       <Header />
       <ButtonPage />
     </AccidentTypeContext.Provider>
+=======
+   <>
+      <AccidentTypeContext.Provider value={[accidentInfoState, setAccidentInfoState]}>
+      <Header />
+      <main>
+        <aside>
+          <ButtonPage />
+        </aside>
+        <Map />
+      </main>
+      </AccidentTypeContext.Provider>
+    </>
+>>>>>>> refs/remotes/origin/main
   )
 }
 
