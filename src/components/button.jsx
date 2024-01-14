@@ -19,6 +19,7 @@ import { AccidentTypeContext } from '../App.jsx';
 // }
 
 const Button = ({ data, i, j }) => {
+  // console.log(data, i);
   const [accidentInfo, setAccidentInfo] = useContext(AccidentTypeContext);
 
   return (

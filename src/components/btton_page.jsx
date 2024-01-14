@@ -15,6 +15,7 @@ const AccidentTypeSelector = ({ title, typeArray, i }) => (
 
 const ButtonPage = () => {
   const [accidentInfo] = useContext(AccidentTypeContext);
+  // console.log(accidentInfoState);
   return (
     <>
       <div className="BtnPage">
