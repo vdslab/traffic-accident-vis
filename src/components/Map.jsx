@@ -10,10 +10,10 @@ function Dms2Deg(num) {
 function Map() {
   const japan = [35.6895, 139.6917];
   const japanBounds = [
-    [24.396308, 122.934570], // 南端の座標
-    [45.551483, 153.986672]  // 北端の座標
+    [0.000000, 110.000000], // 南端の座標
+    [51.000000, 167.000000]  // 北端の座標
   ];
-  
+
   return (
     <MapContainer
       center={japan}
