@@ -5,12 +5,9 @@ import { AccidentTypeContext } from '../App.jsx';
 const AccidentTypeSelector = ({ title, typeArray, i }) => (
   <>
     <h2 className="BtnTitle">{title}</h2>
-    <div>
+    <div className="SetBtn">
       {typeArray.map((type, index) => (
-        <React.Fragment key={index}>
-          <Button data={type} i={i} j={index} />
-          {index % 2 === 1 && <div key={`divider-${index}`}></div>}
-        </React.Fragment>
+          <Button key={index} data={type} i={i} j={index} />
       ))}
     </div>
   </>

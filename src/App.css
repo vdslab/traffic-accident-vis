@@ -14,17 +14,41 @@
 **                      button.jsx                      **
 \********************************************************/
 
-.selectBtn {
-  color: white;
-  width: 131px;
-  height: 44px;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 5px;
+.selectBtn label{
+  display: block;
+  background-color: grey;
+  float: left;
+  width: 120px;
+  height: 45px;
+  margin: 5px;
+  text-align: center;
+  line-height: 45px;
+  padding-left: 5px;
+  padding-right: 5px;
   cursor: pointer;
-  margin: 10px 10px 10px 10px;
-  border: none;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.selectBtn input{
+  display: none;
+}
+
+.selectBtn input:checked + label,
+.selectBtn.checked label {
+  background-color: #31A9EE;
+  border: 2px solid #006DD9;
+}
+
+/* ******************************************************\
+**                    button_page.jsx                   **
+\********************************************************/
+
+.SetBtn {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .BtnTitle {
@@ -32,8 +56,4 @@
   vertical-align: middle;
   line-height: normal;
   margin: 10px 10px 0px 10px;
-}
-
-.BtnPage {
-  margin-left: 30px;
 }
