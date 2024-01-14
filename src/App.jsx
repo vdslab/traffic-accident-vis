@@ -97,6 +97,12 @@ function App() {
   const [accidentInfoState, setAccidentInfoState] = useState(accidentInfo);
   console.log(accidentInfoState);
   return (
+<<<<<<< HEAD
+    <AccidentTypeContext.Provider value={[accidentInfoState, setAccidentInfoState]}>
+      <Header />
+      <ButtonPage />
+    </AccidentTypeContext.Provider>
+=======
    <>
       <AccidentTypeContext.Provider value={[accidentInfoState, setAccidentInfoState]}>
       <Header />
@@ -108,6 +114,7 @@ function App() {
       </main>
       </AccidentTypeContext.Provider>
     </>
+>>>>>>> refs/remotes/origin/main
   )
 }
 
