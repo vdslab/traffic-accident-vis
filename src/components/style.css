@@ -44,3 +44,14 @@ aside {
 .controller-container .MuiButtonBase-root {
     margin-bottom: 20px;
 }
+
+.subchart-container {
+    position: absolute;
+    width: 250px;
+    height: 78%;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    z-index: 1400;
+    background-color: #ffffff88;
+}

@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
 import Data from '../assets/data.json';
 import AnimationController from './AnimationController';
+import SubChart from './SubChart';
 
 const dataByDate = {};
 Data.forEach((value) => {
@@ -77,6 +78,9 @@ function Map() {
       </div>
       <div className="controller-container">
         <AnimationController　displayDate={displayDate} setDisplayDate={setDisplayDate} animationPlayed={animationPlayed} setAnimationPlayed={setAnimationPlayed} minDisplayDate={minDisplayDate} maxDisplayDate={maxDisplayDate} />
+      </div>
+      <div className="subchart-container">
+        <SubChart prefCode={"30"} />
       </div>
     </div>
   );
