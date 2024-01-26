@@ -18,7 +18,7 @@ import { AccidentTypeContext } from "../App.jsx";
 //   );
 // }
 
-const Button = ({ data, i, j, filterData }) => {
+const Button = ({ data, i, j }) => {
 	// console.log(data, i);
 	const [accidentInfo, setAccidentInfo] = useContext(AccidentTypeContext);
 
@@ -33,7 +33,6 @@ const Button = ({ data, i, j, filterData }) => {
 						const newAccidentInfo = [...accidentInfo];
 						newAccidentInfo[i].types[j].checked = newChecked;
 						setAccidentInfo(newAccidentInfo);
-						filterData();
 					}}
 				/>
 				{data.type}
