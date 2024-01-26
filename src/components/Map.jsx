@@ -1,8 +1,10 @@
-import { MapContainer, TileLayer, Circle, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Circle, Popup, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState, useEffect, useContext } from "react";
 import Data from "../assets/data.json";
 import AnimationController from "./AnimationController";
+import geojson from "../assets/prefectures.json"
+import prejson from "../assets/pre.json";
 
 import { DataContext } from "../App.jsx";
 
@@ -84,6 +86,43 @@ function Map() {
 		);
 	}
 
+	const [prefecture, setPrefecture] = useState(null);
+	const geoJSONStyle = {
+		color: "white",
+		weight: 0.5,
+		opacity: 0,
+	};
+
+
+	const hoverStyle = {
+		weight: 5,
+		color: 'green',
+		opacity: 1,
+	};
+	console.log(prefecture);
+	function serchKey(obj, target) {
+		const key = Object.keys(obj).find((key) => obj[key] === target);
+		return key;
+	}
+	const onEachFeature = (feature, layer) => {
+		const clickedPre = Object.values(feature.properties)[0];
+		layer.on({
+			mouseover: () => {
+				layer.setStyle(hoverStyle);
+			},
+			mouseout: () => {
+				layer.setStyle(geoJSONStyle);
+			},
+			click: () => {
+				setPrefecture(serchKey(prejson, clickedPre));
+			}
+		});
+		layer.bindPopup(clickedPre);
+		layer.on('popupclose', () => {
+			setPrefecture(null);
+		});
+	}
+
 	return (
 		<div className="map-container">
 			<div className="map-wrapper">
@@ -93,6 +132,11 @@ function Map() {
 					scrollWheelZoom={true}
 					maxBounds={japanBounds}
 				>
+					<GeoJSON
+						data={geojson}
+						style={geoJSONStyle}
+						onEachFeature={onEachFeature}
+					/>
 					<TileLayer
 						bounds={japanBounds}
 						minZoom={5}
