@@ -77,7 +77,11 @@ function App() {
 					checked: true,
 				},
 				{
-					type: "65歳以上",
+					type: "65 ~ 74歳",
+					checked: true,
+				},
+				{
+					type: "75歳以上",
 					checked: true,
 				},
 			],
