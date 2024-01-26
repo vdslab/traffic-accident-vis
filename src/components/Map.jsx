@@ -21,30 +21,28 @@ function Map() {
     opacity: 0,
   };
 
+
   const hoverStyle = {
     weight: 5,
     color: 'green',
     opacity: 1,
   };
-
+  console.log(prefecture);
   function serchKey(obj, target) {
     const key = Object.keys(obj).find((key) => obj[key] === target);
     return key;
   }
-
-  console.log('Current Prefecture:', prefecture);
   const onEachFeature = (feature, layer) => {
     const clickedPre = Object.values(feature.properties)[0];
     layer.on({
       mouseover: () => {
-        console.log(prefecture);
-        (!prefecture && layer.setStyle(hoverStyle));
+        layer.setStyle(hoverStyle);
       },
       mouseout: () => {
-        (!prefecture && layer.setStyle(geoJSONStyle));
+        layer.setStyle(geoJSONStyle);
       },
-      click:() => {
-        setPrefecture(clickedPre);
+      click: () => {
+        setPrefecture(serchKey(prejson, clickedPre));
       }
     });
     layer.bindPopup(clickedPre);
