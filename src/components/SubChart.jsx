@@ -1,5 +1,7 @@
 import { PieChart, Pie, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Data from '../assets/data.json';
+import Pre from '../assets/pre.json';
+
 const ageCode = {
   "01": "0～24歳",
   "25": "25～34歳",
@@ -34,7 +36,7 @@ function YearChart({ prefCode }) {
     <ResponsiveContainer width="100%" height="40%">
       <PieChart width={400} height={400}>
         <Pie data={data} dataKey="value" cx="50%" cy="50%" innerRadius={40} outerRadius={60} startAngle={90} endAngle={-270} fill="#82ca9d" label={renderCustomizedLabel} style={{ outline: 'none', fontSize: '80%' }} />
-        <Tooltip formatter={(value, name) => [value + "人", name]}/>
+        <Tooltip formatter={(value, name) => [value + "人", name]} />
         <text x={'50%'} y={'46%'} dy={8} textAnchor="middle" fill={"#000000"} style={{ fontSize: '80%' }} >
           交通事故
         </text>
@@ -54,8 +56,8 @@ function DayChart({ prefCode }) {
     }
   });
   const days = ['日', '月', '火', '水', '木', '金', '土'];
-  const data = days.map((elem, index) => ({ "name":  elem, "事故件数": chartData[index+1]}));
-  
+  const data = days.map((elem, index) => ({ "name": elem, "事故件数": chartData[index + 1] }));
+
   return (
     <ResponsiveContainer width="100%" height="55%">
       <BarChart
@@ -72,7 +74,7 @@ function DayChart({ prefCode }) {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip formatter={(value, name, props) => [value + "件", name]}/>
+        <Tooltip formatter={(value, name, props) => [value + "件", name]} />
         <Bar dataKey="事故件数" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
       </BarChart>
     </ResponsiveContainer>
@@ -81,11 +83,12 @@ function DayChart({ prefCode }) {
 
 export default function SubChart({ prefCode }) {
   return (
-    <>
-      東京都の年齢別事故割合
-      <YearChart prefCode={prefCode} />
-      東京都の曜日別事故件数
-      <DayChart prefCode={prefCode} />
-    </>
+    (prefCode === "null") ? <></> :
+      <div className="subchart-container">
+        {Pre[prefCode]}の年齢別事故割合
+        <YearChart prefCode={prefCode} />
+        {Pre[prefCode]}の曜日別事故件数
+        <DayChart prefCode={prefCode} />
+      </div>
   );
 }
