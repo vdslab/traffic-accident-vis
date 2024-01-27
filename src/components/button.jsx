@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AccidentTypeContext, DataContext } from "../App.jsx";
-import Data from "../assets/data.json";
+import Data from "../assets/january_data.json";
 
 const Button = ({ data, i, j }) => {
 	const [accidentInfo, setAccidentInfo] = useContext(AccidentTypeContext);

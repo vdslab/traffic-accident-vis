@@ -55,14 +55,36 @@ function Map() {
 		return Number(elem.i) < 0;
 	};
 
-	const myFilter = (elem) => {
-		const type = accidentInfo[2].types;
+	const timeFilterHandler = (elem) => {
 		return (
 			timeFilter(elem, 0, 0, 6) ||
 			timeFilter(elem, 1, 6, 12) ||
 			timeFilter(elem, 2, 12, 18) ||
 			timeFilter(elem, 3, 18, 24)
 		);
+	};
+
+	const ageFilter = (elem, i) => {
+		const type = accidentInfo[3].types;
+		const ageData = ["01", "25", "35", "45", "55", "65", "75"];
+		if (type[i].checked === true) return elem.k === ageData[i];
+		return elem.k === "-1";
+	};
+
+	const ageFilterHandler = (elem) => {
+		return (
+			ageFilter(elem, 0) ||
+			ageFilter(elem, 1) ||
+			ageFilter(elem, 2) ||
+			ageFilter(elem, 3) ||
+			ageFilter(elem, 4) ||
+			ageFilter(elem, 5) ||
+			ageFilter(elem, 6)
+		);
+	};
+
+	const myFilter = (elem) => {
+		return timeFilterHandler(elem);
 	};
 
 	const displayDateObj = new Date(displayDate);
