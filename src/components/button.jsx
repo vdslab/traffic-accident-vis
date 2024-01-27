@@ -39,10 +39,6 @@ const Button = ({ data, i, j }) => {
 			setDataInfo(dataInfo.filter((item) => item.m === "0"));
 	};
 
-	const timeTypeHandler = () => {
-		console.log("time");
-	};
-
 	const ageTypeHandler = () => {
 		const type = accidentInfo[3].types;
 		const age = [];
@@ -116,7 +112,6 @@ const Button = ({ data, i, j }) => {
 		newAccidentInfo[i].types[j].checked = newChecked;
 		if (i === 0) accidentTypeHandler();
 		if (i === 1) transmissionTypeHandler();
-		if (i === 2) timeTypeHandler();
 		if (i === 3) ageTypeHandler();
 		if (i === 4) supportCarTypeHandler();
 		setAccidentInfo(newAccidentInfo);
