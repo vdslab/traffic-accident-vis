@@ -40,15 +40,19 @@ function App() {
 			title: "時間帯",
 			types: [
 				{
-					type: "朝",
+					type: "0 ~ 6時",
 					checked: true,
 				},
 				{
-					type: "夜",
+					type: "6 ~ 12時",
 					checked: true,
 				},
 				{
-					type: "とかかなあ",
+					type: "12 ~ 18時",
+					checked: true,
+				},
+				{
+					type: "18 ~ 24時",
 					checked: true,
 				},
 			],
@@ -90,11 +94,11 @@ function App() {
 			title: "サポカー ？",
 			types: [
 				{
-					type: "そうだよ!!!",
+					type: "有",
 					checked: true,
 				},
 				{
-					type: "違うよ!!!",
+					type: "無",
 					checked: true,
 				},
 			],
