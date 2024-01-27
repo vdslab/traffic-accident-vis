@@ -138,6 +138,7 @@ function Map() {
         layer.setStyle(geoJSONStyle);
       },
       click: () => {
+        console.log(pre);
         setPrefecture(serchKey(pre, clickedPre));
       }
     });
