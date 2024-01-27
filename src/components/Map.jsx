@@ -47,45 +47,35 @@ function Map() {
 
   const [animationPlayed, setAnimationPlayed] = useState(false);
 
-  let circles;
-  if (animationPlayed) {
-    const displayDateObj = new Date(displayDate);
-    const str = `${displayDateObj.getFullYear()}-${(
-      "0" +
-      (displayDateObj.getMonth() + 1)
-    ).slice(-2)}-${("0" + displayDateObj.getDate()).slice(-2)}`;
-    if (dataByDate[str] === undefined) {
-      circles = <></>;
-    } else {
-      circles = dataByDate[str].map((item, index) => (
-        <Circle
-          center={[Dms2Deg(item.q), Dms2Deg(item.r)]}
-          radius={10}
-          key={index}
-          color={item.b === 1 ? "#1762b6" : "#00dceb"}
-        >
-          <Popup>
-            {Dms2Deg(item.q)}, {Dms2Deg(item.r)}
-          </Popup>
-        </Circle>
-      ));
-    }
-  } else {
-    circles = Object.keys(dataByDate).map((key) =>
-      dataByDate[key].map((item, index) => (
-        <Circle
-          center={[Dms2Deg(item.q), Dms2Deg(item.r)]}
-          radius={10}
-          key={key + index}
-          color={item.b === 1 ? "#1762b6" : "#00dceb"}
-        >
-          <Popup>
-            {Dms2Deg(item.q)}, {Dms2Deg(item.r)}
-          </Popup>
-        </Circle>
-      )),
-    );
+  const myFilter = (elem) => {
+    return 11 <= Number(elem.i) && Number(elem.i) <= 23
   }
+
+  const displayDateObj = new Date(displayDate);
+  const str = `${displayDateObj.getFullYear()}-${("0" + (displayDateObj.getMonth() + 1)).slice(-2)}-${("0" + displayDateObj.getDate()).slice(-2)}`;
+  let circles;
+  circles = Object.keys(dataByDate)
+    .filter((date) => !animationPlayed || date === str)
+    .map((date) => {
+      if (dataByDate[date] === undefined) {
+        return (<></>);
+      } else {
+        return dataByDate[date]
+          .filter(elem => myFilter(elem))
+          .map((item, index) => (
+            <Circle
+              center={[Dms2Deg(item.q), Dms2Deg(item.r)]}
+              radius={10}
+              key={date + index}
+              color={item.b === 1 ? "#1762b6" : "#00dceb"}
+            >
+              <Popup>
+                {Dms2Deg(item.q)}, {Dms2Deg(item.r)}
+              </Popup>
+            </Circle>
+          ))
+      }
+    });
 
   const [prefecture, setPrefecture] = useState(null);
   const geoJSONStyle = {
