@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/header";
 import ButtonPage from "./components/btton_page";
 import Map from "./components/Map";
-import Data from "./assets/data.json";
+import Data from "./assets/january_data.json";
 
 export const AccidentTypeContext = createContext();
 export const DataContext = createContext();
