@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AccidentTypeContext, DataContext } from "../App.jsx";
-import Data from "../assets/data.json";
+import Data from "../assets/january_data.json";
 
 const Button = ({ data, i, j }) => {
 	const [accidentInfo, setAccidentInfo] = useContext(AccidentTypeContext);
@@ -37,10 +37,6 @@ const Button = ({ data, i, j }) => {
 			setDataInfo(dataInfo.filter((item) => item.m === "2"));
 		if (type[0].checked === false && type[1].checked === false)
 			setDataInfo(dataInfo.filter((item) => item.m === "0"));
-	};
-
-	const timeTypeHandler = () => {
-		console.log("time");
 	};
 
 	const ageTypeHandler = () => {
@@ -95,7 +91,6 @@ const Button = ({ data, i, j }) => {
 				}),
 			);
 		}
-		console.log(age.flat());
 		setDataInfo(age.flat());
 	};
 
@@ -116,7 +111,6 @@ const Button = ({ data, i, j }) => {
 		newAccidentInfo[i].types[j].checked = newChecked;
 		if (i === 0) accidentTypeHandler();
 		if (i === 1) transmissionTypeHandler();
-		if (i === 2) timeTypeHandler();
 		if (i === 3) ageTypeHandler();
 		if (i === 4) supportCarTypeHandler();
 		setAccidentInfo(newAccidentInfo);

@@ -17,7 +17,6 @@ const ButtonPage = (props) => {
 	const { filterData } = props;
 	const [data, setData] = useContext(DataContext);
 	const [accidentInfo] = useContext(AccidentTypeContext);
-	// console.log(accidentInfoState);
 	return (
 		<>
 			<div className="BtnPage">
