@@ -4,8 +4,8 @@ import { useState, useEffect, useContext } from "react";
 import Data from "../assets/data.json";
 import AnimationController from "./AnimationController";
 import geojson from "../assets/prefectures.json"
-import prejson from "../assets/pre.json";
 import SubChart from './SubChart';
+import { jikonaiyou, age, pre, citys } from "../assets/taiouhyou.js";
 
 import { DataContext } from "../App.jsx";
 
@@ -70,7 +70,40 @@ function Map() {
               color={item.b === 1 ? "#1762b6" : "#00dceb"}
             >
               <Popup>
-                {Dms2Deg(item.q)}, {Dms2Deg(item.r)}
+                <table>
+                  <thead>
+                    <tr>
+                      <th colSpan="2">事故詳細</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>場所</td>
+                      <td>{pre[item.a] + citys[item.a][item.e]}</td>
+                    </tr>
+                    <tr>
+                      <td>負傷者数</td>
+                      <td>{item.d}人</td>
+                    </tr>
+                    <tr>
+                      <td>死者数</td>
+                      <td>{item.c}人</td>
+                    </tr>
+                    <tr>
+                      <td>時間</td>
+                      <td>{date}  {item.i}時{item.j}分</td>
+                    </tr>
+                    <tr>
+                      <td>年齢（当事者A）</td>
+                      <td>{age[item.k]}</td>
+                    </tr>
+                    <tr>
+                      <td>年齢（当事者B）</td>
+                      <td>{age[item.l]}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
               </Popup>
             </Circle>
           ))
@@ -105,7 +138,7 @@ function Map() {
         layer.setStyle(geoJSONStyle);
       },
       click: () => {
-        setPrefecture(serchKey(prejson, clickedPre));
+        setPrefecture(serchKey(pre, clickedPre));
       }
     });
     layer.bindPopup(clickedPre);
