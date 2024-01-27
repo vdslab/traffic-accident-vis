@@ -16,7 +16,7 @@ function AnimationController({ displayDate, setDisplayDate, animationPlayed, set
     if (animationPlayed) {
       const intervalId = setInterval(() => {
         setDisplayDate(prevDisplayDate => (((prevDisplayDate + animationStep) - minDisplayDate) % (maxDisplayDate - minDisplayDate) + minDisplayDate));
-      }, 100);
+      }, 500);
       return () => clearInterval(intervalId);
     }
   }, [animationPlayed]);

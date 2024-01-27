@@ -43,7 +43,7 @@ function Map() {
     new Date("2022-01-01").getTime(),
   );
   const minDisplayDate = new Date("2022-01-01").getTime();
-  const maxDisplayDate = new Date("2022-12-31").getTime();
+  const maxDisplayDate = new Date("2022-01-31").getTime();
 
   const [animationPlayed, setAnimationPlayed] = useState(false);
 

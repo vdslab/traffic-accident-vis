@@ -1,5 +1,5 @@
 import { PieChart, Pie, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import Data from '../assets/data.json';
+import Data from '../assets/january_data.json';
 import Pre from '../assets/pre.json';
 
 const ageCode = {
